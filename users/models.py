@@ -11,6 +11,8 @@ class User(AbstractUser):
         STUFF = 'stuff', _('stuff')
 
     email = models.EmailField(_("email address"), unique=True)
+    first_name=models.CharField(max_length=20, blank=True,null=True)
+    last_name=models.CharField(max_length=20, blank=True,null=True)
     user_type = models.CharField(max_length=50, choices=UserTypeChoice.choices, default=UserTypeChoice.CUSTOMER)
 
     USERNAME_FIELD = "email"

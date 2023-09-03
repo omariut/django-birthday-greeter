@@ -6,7 +6,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    #3rd party apps
+    'drf_yasg',
+    'rest_framework',
+    'rest_framework_simplejwt',
+    
+
     #local-apps
     'users',
-    'customers'
+    'customers',
+
+
 ]

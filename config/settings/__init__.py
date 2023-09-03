@@ -8,4 +8,5 @@ from config.settings.middlewears import *
 from config.settings.password_validators import *
 from config.settings.static import *
 from config.settings.templates import *
+from config.settings.rest_framework import *
 from config.settings.celery import *
