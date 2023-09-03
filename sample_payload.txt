@@ -1,0 +1,22 @@
+customer registration:
+url: {base-url}/users
+
+    {
+        "username": "custoe-1103",
+        "password":"byte@1516",
+        "email": "eferer-ew-103@uparts.com",
+        "birthdate": "1990-06-20",
+        "timezone": "Asian/Dhaka"
+
+
+    }
+
+
+    {
+        "username": "admin",
+        "password":"admin",
+        "email": "admin@admin.com",
+"user_type":"admin"
+
+
+    }
