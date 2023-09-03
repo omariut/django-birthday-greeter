@@ -59,7 +59,7 @@ To set up Django Birthday Greeter using Docker, follow these steps:
 
 3. Build the Docker images for the Django app and Celery worker:
 
-    docker-compose build
+    ```docker-compose build```
 
 ### Configure Environment Variables
 
@@ -69,13 +69,13 @@ To set up Django Birthday Greeter using Docker, follow these steps:
 
 5. Start the Docker containers:
     
-    docker-compose up -d
+    ```docker-compose up -d```
 
 ### Database Initialization
 
 6. Initialize the database and apply migrations:
 
-    docker-compose exec web python manage.py migrate
+    ```docker-compose exec web python manage.py migrate```
 
 7. Access the Django Birthday Greeter application at its deployment URL.
 
