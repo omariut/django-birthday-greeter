@@ -1,0 +1,76 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    #    platform: linux/amd64
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1516
+      - POSTGRES_DB=birthday_greeter_db
+
+    expose:
+      - 5458
+    ports:
+      - "5458:5458"
+    command: -p 5458
+    restart: always  
+
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - db_backup:/var/lib/postgresql/backup
+
+  redis:
+    image: redis:5-alpine
+    #    platform: linux/amd64
+    command: --port 6394
+    ports:
+      - "6394:6394"
+    expose:
+      - 6394
+    restart: always  
+  
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+      - redis
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+
+    volumes:
+      - .:/app/backend
+
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    restart: always  
+
+  worker:
+      build: .
+      command: python -m celery -A config worker --loglevel=info 
+      volumes:
+        - .:/app/celery  
+      env_file:
+        - .env
+      depends_on:
+        - redis
+        - app
+  beat:
+      build: .
+      command: python -m celery -A config beat --loglevel=info 
+      volumes:
+        - .:/app/celery 
+      env_file:
+      - .env
+      depends_on:
+        - redis
+        - app
+volumes:
+  dbdata:
+  db_backup:
+
+
