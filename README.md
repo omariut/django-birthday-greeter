@@ -75,7 +75,7 @@ To set up Django Birthday Greeter using Docker, follow these steps:
 
 6. Initialize the database and apply migrations:
 
-    ```docker-compose exec web python manage.py migrate```
+    ```docker-compose exec <your-container-name> python manage.py migrate```
 
 7. Access the Django Birthday Greeter application at its deployment URL.
 
