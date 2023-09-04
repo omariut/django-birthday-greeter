@@ -48,8 +48,8 @@ def send_birthday_wishes_to_customer(customer_id):
         message = f"Dear {customer.user.username},\n\nWishing you a fantastic birthday!"
         from_email = "your_email@example.com"
         recipient_list = [customer.user.email]
-
-        send_mail(subject, message, from_email, recipient_list)
+        print(f" email should be sent to {recipient_list} with subject: {subject}")
+        #send_mail(subject, message, from_email, recipient_list)
         logger.info(f"Sent birthday wishes to {customer.name} via email.")
 
     except Customer.DoesNotExist:
