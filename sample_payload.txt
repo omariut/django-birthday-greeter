@@ -16,7 +16,8 @@ url: {base-url}/users
         "username": "admin",
         "password":"admin",
         "email": "admin@admin.com",
-"user_type":"admin"
+        "birthdate": "1990-06-20",
+        "timezone": "Asian/Dhaka"
 
 
     }
